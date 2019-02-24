@@ -1,5 +1,6 @@
 package com.gzd.example.mvpapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import com.gzd.example.mvpapplication.adapter.MainAdapter;
 import com.gzd.example.mvpapplication.event.Message;
 import com.gzd.example.mvpapplication.pojo.Book;
+import com.gzd.example.mvpapplication.trainning.view.MVPBookActivity;
 import com.gzd.example.mvpapplication.util.DBUtil;
 import com.gzd.example.mvpapplication.util.HttpUtil;
 
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        Main2ActivityMVP.onActionStart(this);
+        //Main2ActivityMVP.onActionStart(this);
+        startActivity(new Intent(this,MVPBookActivity.class));
     }
 }

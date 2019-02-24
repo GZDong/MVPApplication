@@ -8,4 +8,4 @@ Fragment或其他view充当controller，那么这也就意味着我们需要将�
 presenter持有activity等，加上持有的model可能要进行异步操作，那么意味着可能会出现内存泄漏，所以在将activity赋给
 presenter的同时，也要考虑使用弱引用和onDestroy里进行解除绑定的操作
 那么进行绑定，为了有通用性，最好定义一个顶级Activity等进行统一的绑定解除操作，同时，presenter也要提供绑定和解绑的操作，
-为了统一和通用，也要定义一个presenter的顶级类，在那里做统一操作
+为了统一和通用，也要定义一个presenter的顶级类，在那里做统一操作，同时使用类型参数化，使得对于其他view也适用

@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2ActivityMVP"></activity>
+        <activity android:name=".Main2ActivityMVP" />
+        <activity android:name=".trainning.view.MVPBookActivity" />
+        <activity android:name=".trainning.view.MVPTitleActivity"></activity>
     </application>
 
 </manifest>
