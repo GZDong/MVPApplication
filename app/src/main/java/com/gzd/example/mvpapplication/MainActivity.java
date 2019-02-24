@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 
 import com.gzd.example.mvpapplication.adapter.MainAdapter;
 import com.gzd.example.mvpapplication.event.Message;
@@ -17,9 +19,10 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     RecyclerView mRecyclerView;
     List<Book> mBooks = new ArrayList<>();
+    Button mButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         MainAdapter adapter = new MainAdapter(mBooks);
         mRecyclerView.setAdapter(adapter);
 
+        mButton = findViewById(R.id.btn_to_mvp_activity);
+        mButton.setOnClickListener(this);
     }
 
     private void updateView(){
@@ -62,5 +67,10 @@ public class MainActivity extends AppCompatActivity {
     private void getDataFromHttp(){
         HttpUtil util = HttpUtil.getInstance();
         util.connection("www.book.com");
+    }
+
+    @Override
+    public void onClick(View v) {
+        Main2ActivityMVP.onActionStart(this);
     }
 }
